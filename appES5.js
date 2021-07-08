@@ -50,7 +50,8 @@ UI.prototype.showAlert = function(msg,className){
 UI.prototype.deleteEmail= function(target) {
   if (target.className ==='delete'){
     target.parentElement.parentElement.remove();
-  }}
+  }
+}
   
 
 
