@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css"
+      integrity="sha512-5fsy+3xG8N/1PV5MIJz9ZsWpkltijBI48gBzQ/Z2eVATePGHOkMIn+xTDHIfTZFVb9GMpflF2wOWItqxAP2oLQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      body {
+        color: #fff;
+        background: rgb(4, 29, 43);
+      }
+      h1,
+      h2 {
+        text-align: center;
+      }
+      .success,
+      .error {
+        padding: 5px;
+        margin: 5px 0 15px 0;
+      }
+      .success {
+        background: darkslategrey;
+      }
+      .error {
+        background: darkred;
+      }
+    </style>
+    <title>Email List</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Add Email</h1>
+      <form id="email-form">
+        <div>
+          <label for="name">Name</label>
+          <input type="text" id="name" class="u-full-width" />
+        </div>
+        <div>
+          <label for="company">Company</label>
+          <input type="text" id="company" class="u-full-width" />
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" class="u-full-width" />
+        </div>
+        <div>
+          <input type="submit" value="Submit" class="u-full-width" />
+        </div>
+      </form>
+
+      <table class="u-full-width">
+        <h2>Record</h2>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Company</th>
+            <th>Email</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="email-list"></tbody>
+      </table>
+    </div>
+
+    <script src="appES5.js"></script>
+
+    <!-- <script src="appES6.js"></script> -->
+  </body>
+</html>
