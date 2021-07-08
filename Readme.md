@@ -1,7 +1,7 @@
 # Email List
 
 - This is just a UI based application with no database where you can add and remove Emails
-- This project is build with ES5 Prototype Syntax and ES6 Classes to understand the concepts of Object Oriented Programming (OOP) in JavaScript
+- This project is built with ES5 Prototype Syntax and then converted to ES6 Classes to understand the concepts of Object Oriented Programming (OOP) in JavaScript
 
 ## Libraries
 
