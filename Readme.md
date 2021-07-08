@@ -1,6 +1,6 @@
 # Email List
 
-- This is just a UI based application with no database where you can add and remove Emails
+- This is a UI based application with no database where you can add and remove Emails with Local Storage
 - This project is built with ES5 Prototype Syntax and then converted to ES6 Classes to understand the concepts of Object Oriented Programming (OOP) in JavaScript
 - It will also persist the data in the local Storage
 
