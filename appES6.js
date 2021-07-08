@@ -56,6 +56,49 @@ class UI {
   }
 }
 
+// Local Storage Class
+
+class Store {
+  static getEmails(){
+    let emailLists;
+    if(localStorage.getItem('emailLists')===null){
+      emailLists =[];
+    } else{
+      emailLists = JSON.parse(localStorage.getItem('emailLists'));
+    }
+    return emailLists;
+  }
+
+  static displayEmails(){
+    const emailLists = Store.getEmails();
+
+    emailLists.forEach(function(emailList){
+      const ui = new UI; 
+      ui.addEmailToList(emailList);
+    });  
+  }
+
+  static addEmails(emailList){
+    const emailLists = Store.getEmails();
+    emailLists.push(emailList);
+    localStorage.setItem('emailLists',JSON.stringify(emailLists));
+  }
+  static removeEmails(email){
+    const emailLists = Store.getEmails();
+
+    emailLists.forEach(function(emailList,index){
+      if(emailList.email ===email){
+        emailLists.splice(index,1);
+      }
+    });  
+    localStorage.setItem('emailLists',JSON.stringify(emailLists));
+      
+  }
+}
+
+// DOM Load Event
+document.addEventListener('DOMContentLoaded',Store.displayEmails);
+
 // Event Listeners for adding emails
 document.getElementById('email-form').addEventListener('submit',
   function(e){
@@ -69,7 +112,7 @@ document.getElementById('email-form').addEventListener('submit',
   
     // Instantiating UI
     const ui = new UI();
-    console.log(ui)
+   
 
     // Validate
     if(name === '' || company=== '' || email=== ''){
@@ -79,6 +122,9 @@ document.getElementById('email-form').addEventListener('submit',
     else{
       // Adding Email record to list 
     ui.addEmailToList(emailList);
+
+    // Adding to LS
+    Store.addEmails(emailList );
 
     // 
     ui.showAlert('Email Added!','success');
@@ -97,6 +143,10 @@ document.getElementById('email-form').addEventListener('submit',
       const ui = new UI();
 
       ui.deleteEmail(e.target);
+
+      // Remove from LS
+      Store.removeEmails(e.target.parentElement.previousElementSibling.textContent); 
+      
 
       ui.showAlert('Book Removed!','success');
 
